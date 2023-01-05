@@ -44,7 +44,7 @@ T future<T>::get() {
 template<typename T>
 void future<T>::wait() {
   std::unique_lock lk(state->mut);
-  if(!locked_valid())
+  if (!locked_valid())
     state->cv.wait(lk, [&]() {return locked_valid();});
 }
 

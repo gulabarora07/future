@@ -15,7 +15,7 @@ public:
   template <typename ...Ts>
   void operator()(Ts &&... ts);
   future<R> get_future();
-  packaged_task(const packaged_task&)=delete;
+  packaged_task(const packaged_task&) = delete;
   const packaged_task& operator=(const packaged_task&) = delete;
 };
 

@@ -16,7 +16,9 @@ template<typename T> class promise;
 #include "future.h"
 #include "promise.h"
 #include "packaged_task.h"
+#include "ts_pqueue.h"
 
 #include "future.inl"
 #include "promise.inl"
 #include "packaged_task.inl"
+#include "ts_pqueue.inl"
