@@ -19,3 +19,4 @@ template<typename T> class promise;
 
 #include "future.inl"
 #include "promise.inl"
+#include "packaged_task.inl"

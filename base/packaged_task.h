@@ -10,15 +10,11 @@ class packaged_task<R(Args...)> {
   std::function<R(Args...)> fn;
   promise<R> pr;             // the promise of the result
 public:
-  packaged_task(packaged_task&& other) = default;
+  packaged_task(packaged_task&& other);
+  packaged_task(std::function<R(Args...)> fn_);
   template <typename ...Ts>
-  explicit packaged_task(Ts &&... ts) : fn(std::forward<Ts>(ts)...) { }
-  template <typename ...Ts>
-  void operator()(Ts &&... ts)
-  {
-      pr.set_value(fn(std::forward<Ts>(ts)...));  // fulfill the promise
-  }
-  future<R> get_future() { return pr.get_future(); }
+  void operator()(Ts &&... ts);
+  future<R> get_future();
   packaged_task(const packaged_task&)=delete;
   const packaged_task& operator=(const packaged_task&) = delete;
 };
