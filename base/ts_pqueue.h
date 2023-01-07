@@ -4,7 +4,7 @@
 
 namespace dist {
 
-template <typename T, class Compare = std::less<T>>
+template <typename T, typename Compare = std::less<T>>
 class ts_pqueue : protected base_mutable_struct {
  protected:
   std::priority_queue<T, std::vector<T>, Compare> pq;
